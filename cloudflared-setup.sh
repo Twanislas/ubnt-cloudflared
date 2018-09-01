@@ -7,7 +7,7 @@ if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then /usr/bin/curl
 if [ ! -f /usr/local/bin/cloudflared ] || [ "$1" = "pull" ]; then /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared-$(uname -m) --output /usr/local/bin/cloudflared; fi
 /bin/chmod +x /usr/local/bin/cloudflared
 /usr/local/bin/cloudflared service install
-/etc/init.d/cloudflared start
+/etc/init.d/cloudflared restart
 
 # Configure the system to use local DNS proxy
 configure
