@@ -4,7 +4,7 @@ source /opt/vyatta/etc/functions/script-template
 # Pull files
 mkdir -p /etc/cloudflared
 /usr/bin/curl -s --fail https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml
-/usr/bin/curl -s --fail https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared --output /usr/local/bin/cloudflared
+/usr/bin/curl -s --fail https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared-$(uname -m) --output /usr/local/bin/cloudflared
 /bin/chmod +x /usr/local/bin/cloudflared
 /usr/local/bin/cloudflared service install
 /etc/init.d/cloudflared start
