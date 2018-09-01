@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/vbash
 set -e
 
 echo "Installing cloudflared"
