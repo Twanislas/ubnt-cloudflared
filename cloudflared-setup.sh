@@ -2,12 +2,12 @@
 source /opt/vyatta/etc/functions/script-template
 
 # Pull files
-mkdir -p /etc/cloudflared
-if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml; fi
-if [ ! -f /usr/local/bin/cloudflared ] || [ "$1" = "pull" ]; then /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared-$(uname -m) --output /usr/local/bin/cloudflared; fi
-/bin/chmod +x /usr/local/bin/cloudflared
-/usr/local/bin/cloudflared service install
-/etc/init.d/cloudflared restart
+sudo mkdir -p /etc/cloudflared
+sudo if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml; fi
+sudo if [ ! -f /usr/local/bin/cloudflared ] || [ "$1" = "pull" ]; then /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared-$(uname -m) --output /usr/local/bin/cloudflared; fi
+sudo /bin/chmod +x /usr/local/bin/cloudflared
+sudo /usr/local/bin/cloudflared service install
+sudo /etc/init.d/cloudflared restart
 
 # Configure the system to use local DNS proxy
 configure
