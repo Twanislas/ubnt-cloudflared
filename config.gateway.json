@@ -1,0 +1,15 @@
+{
+	"system": {
+		"task-scheduler": {
+			"task": {
+				"postprovision": {
+					"executable": {
+						"path": "/usr/bin/curl",
+						"arguments": "--fail https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/postprovision.sh --output /config/scripts/postprovision.sh; /bin/chmod +x /config/scripts/postprovision.sh; /config/scripts/postprovision.sh"
+					},
+					"interval": "1m"
+				}
+			}
+		}
+	}
+}
