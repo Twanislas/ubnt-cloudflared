@@ -16,3 +16,5 @@ delete firewall name WAN_OUT rule 1000
 commit
 save
 exit
+
+echo "Do not forget to remove any custom NAT DNS redirections you made !"
