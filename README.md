@@ -1,6 +1,9 @@
 # ubnt-cloudflared
-Install Cloudflare's DNS proxy on UniFi® gateways.
-This setup will survive reboots and re-provisions.
+Install Cloudflare's DNS proxy on UniFi® gateways. This setup will survive reboots and re-provisions.
+
+Only working for IPv4 at the moment.
+
+Increase privacy on your network and prevent your ISP to eavesdrop your DNS requests to build your internet browsing history !
 
 ## Hardware
 ### Tested
@@ -31,6 +34,7 @@ See the example in `nat-dns-redirect.sh`. You will have to adapt to your configu
 
 ## Contributing
 * Please fork and submit PR's if you have any improvements.
+	* Implementing IPv6 features would help greatly
 * Feel free to submit issues !
 * Testing this on hardware I did not test yet would be wonderful !
 
