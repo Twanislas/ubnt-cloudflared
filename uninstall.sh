@@ -12,6 +12,7 @@ delete service dns forwarding options
 delete system name-server
 set system name-server 1.1.1.1
 set system name-server 1.0.0.1
+delete firewall name WAN_OUT rule 1000
 commit
 save
 exit
