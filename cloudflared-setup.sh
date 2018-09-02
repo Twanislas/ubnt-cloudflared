@@ -24,6 +24,7 @@ set service dns forwarding options "no-resolv"
 set service dns forwarding options "server=127.0.0.1#5053"
 delete system name-server
 set system name-server 127.0.0.1
+delete interfaces ethernet eth0 dhcpv6-pd no-dns
 set interfaces ethernet eth0 dhcpv6-pd no-dns
 
 # Block outgoing DNS packets and log them
