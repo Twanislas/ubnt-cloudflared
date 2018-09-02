@@ -9,6 +9,9 @@ sudo rm -rf /etc/cloudflared /usr/local/bin/cloudflared /config/scripts/post-con
 # Reset default DNS config
 configure
 delete service dns forwarding options
+delete system name-server
+set system name-server 1.1.1.1
+set system name-server 1.0.0.1
 commit
 save
 exit
