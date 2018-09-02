@@ -1,5 +1,6 @@
 # ubnt-cloudflared
-Install Cloudflare's DNS proxy on UniFi® gateways
+Install Cloudflare's DNS proxy on UniFi® gateways.
+This setup will survive reboots and re-provisions.
 
 ## Hardware
 ### Tested
