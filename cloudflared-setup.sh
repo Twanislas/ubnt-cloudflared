@@ -22,24 +22,15 @@ set service dns forwarding options "no-resolv"
 set service dns forwarding options "server=127.0.0.1#5053"
 delete system name-server
 set system name-server 127.0.0.1
-delete interfaces ethernet eth0 dhcpv6-pd no-dns
-set interfaces ethernet eth0 dhcpv6-pd no-dns
 
 # Block outgoing DNS packets and log them
 delete firewall name WAN_OUT rule 1000
-delete firewall ipv6-name WANv6_OUT rule 1000
 
 set firewall name WAN_OUT rule 1000 action drop
 set firewall name WAN_OUT rule 1000 description "Block all outgoing DNS requests on WAN_OUT"
 set firewall name WAN_OUT rule 1000 protocol tcp_udp
 set firewall name WAN_OUT rule 1000 destination port 53
 set firewall name WAN_OUT rule 1000 log enable
-
-set firewall ipv6-name WANv6_OUT rule 1000 action drop
-set firewall ipv6-name WANv6_OUT rule 1000 description "Block all outgoing DNS requests on WANv6_OUT"
-set firewall ipv6-name WANv6_OUT rule 1000 protocol tcp_udp
-set firewall ipv6-name WANv6_OUT rule 1000 destination port 53
-set firewall ipv6-name WANv6_OUT rule 1000 log enable
 
 commit
 save
