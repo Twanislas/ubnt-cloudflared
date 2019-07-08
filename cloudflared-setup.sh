@@ -3,14 +3,15 @@ source /opt/vyatta/etc/functions/script-template
 
 # Pull files
 mkdir -p /etc/cloudflared
+mkdir -p /opt/cloudflared
 if [ ! -f /etc/cloudflared/config.yml ] || [ "$1" = "pull" ]; then
 	/usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/config.yml --output /etc/cloudflared/config.yml
 fi
-if [ ! -f /usr/local/bin/cloudflared ] || [ "$1" = "pull" ]; then
-	sudo /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared --output /usr/local/bin/cloudflared
+if [ ! -f /opt/cloudflared/cloudflared ] || [ "$1" = "pull" ]; then
+	sudo /usr/bin/curl -sf https://raw.githubusercontent.com/Twanislas/ubnt-cloudflared/master/cloudflared --output /opt/cloudflared/cloudflared
 fi
-/bin/chmod +x /usr/local/bin/cloudflared
-/usr/local/bin/cloudflared service install
+/bin/chmod +x /opt/cloudflared/cloudflared
+/opt/cloudflared/cloudflared service install
 /etc/init.d/cloudflared restart
 
 # System config 
